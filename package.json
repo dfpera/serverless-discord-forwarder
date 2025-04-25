@@ -1,0 +1,33 @@
+{
+  "name": "serverless-discord-forwarder",
+  "version": "1.0.0",
+  "description": "Serverless function to forward messages to Discord webhooks",
+  "main": "index.js",
+  "scripts": {
+    "start": "netlify dev",
+    "build": "npm run build:ts && netlify build",
+    "build:ts": "tsc",
+    "dev": "tsc -w"
+  },
+  "keywords": [
+    "discord",
+    "webhook",
+    "netlify",
+    "serverless"
+  ],
+  "author": "",
+  "license": "ISC",
+  "volta": {
+    "node": "22.11.0"
+  },
+  "dependencies": {
+    "axios": "^1.9.0",
+    "dotenv": "^16.5.0"
+  },
+  "devDependencies": {
+    "@netlify/functions": "^3.1.2",
+    "@types/axios": "^0.9.36",
+    "@types/node": "^22.15.2",
+    "typescript": "^5.8.3"
+  }
+}
