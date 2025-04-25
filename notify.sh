@@ -32,7 +32,7 @@ while [[ $# -gt 0 ]]; do
       shift 2
       ;;
     -h|--help)
-      echo "Usage: discordify [options]"
+      echo "Usage: notify [options]"
       echo "Options:"
       echo "  -m, --message MESSAGE    The message to send (required)"
       echo "  -u, --username USERNAME  Custom username for the message"
@@ -78,7 +78,7 @@ fi
 JSON_PAYLOAD="$JSON_PAYLOAD}"
 
 # Send the request
-echo "Sending message to Discord..."
+echo "Sending message to notify..."
 RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "$SERVER_URL" \
   -H "Content-Type: application/json" \
   -d "$JSON_PAYLOAD")

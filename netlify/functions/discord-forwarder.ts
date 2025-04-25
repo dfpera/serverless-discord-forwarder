@@ -16,7 +16,7 @@ interface DiscordPayload {
 // Define interface for Discord request body
 interface DiscordWebhookPayload {
   content: string;
-  username: string;
+  // username: string;
   avatar_url?: string;
 }
 
@@ -52,14 +52,15 @@ export const handler: Handler = async (event, context) => {
     }
 
     // Optional parameters
-    const username =
-      payload.username || process.env.DISCORD_USERNAME || "Serverless Bot";
+    // TODO: Removing for now, can be added back when dynamic naming works
+    // const username =
+    //   payload.username || process.env.DISCORD_USERNAME || "Serverless Bot";
     const avatarUrl = payload.avatarUrl || process.env.DISCORD_AVATAR_URL;
 
     // Prepare the Discord message payload
     const discordPayload: DiscordWebhookPayload = {
       content: payload.message,
-      username: username,
+      // username: username,
     };
 
     if (avatarUrl) {
@@ -72,7 +73,7 @@ export const handler: Handler = async (event, context) => {
     return {
       statusCode: 200,
       body: JSON.stringify({
-        message: "Message sent successfully to Discord",
+        message: "Message sent successfully",
         status: response.status,
       }),
     };
@@ -82,7 +83,7 @@ export const handler: Handler = async (event, context) => {
     return {
       statusCode: 500,
       body: JSON.stringify({
-        error: "Failed to send message to Discord",
+        error: "Failed to send message",
         details: error instanceof Error ? error.message : "Unknown error",
       }),
     };
