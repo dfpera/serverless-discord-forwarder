@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "netlify dev",
-    "build": "npm run build:ts && netlify build",
-    "build:ts": "tsc",
+    "build": "tsc",
     "dev": "tsc -w"
   },
   "keywords": [
